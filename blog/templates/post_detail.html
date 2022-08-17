@@ -89,8 +89,8 @@
                         {{ comment.body | linebreaks }}
                     </div>
                     {% if user.is_authenticated and comment.name == user.username %}
-                    <button class="deleteButton" comment_id="{{ comment.id }}">Delete</button>
-                    <button class="editButton" comment_id="{{ comment.id }}">Edit</button>
+                    <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
+                    <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
                     {% endif %}
                 </div>
                 <!-- Our for loop ends here -->

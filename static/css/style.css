@@ -106,7 +106,8 @@ body {
     color: lightgray;
 }
 
-.btn-signup {
+.btn-signup,
+.btn-edit {
     background-color: #23BBBB;
     color: #fff;
 }
@@ -132,6 +133,11 @@ body {
     color: #E84610;
     border: none;
     background: transparent;
+}
+
+.btn-delete {
+    color: #fff;
+    background: #E84610;
 }
 
 .btn-like:hover,

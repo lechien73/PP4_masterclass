@@ -78,7 +78,7 @@ def post_like(request, slug, *args, **kwargs):
     """
     post = get_object_or_404(Post, slug=slug)
 
-    if request.method == "POST":
+    if request.method == "POST" and request.user.is_authenticated:
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
         else:
