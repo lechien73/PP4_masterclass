@@ -14,9 +14,9 @@
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="{% static 'images/default.jpg' %}" width="100%">
+                <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
                 {% else %}
-                <img src="{{ post.featured_image.url }}" width="100%">
+                <img src="{{ post.featured_image.url }}" class="scale" alt="{{ post.title }}">
                 {% endif %}
             </div>
         </div>
@@ -29,7 +29,7 @@
             <div class="card-body">
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
-                <p class="card-text ">
+                <p class="card-text">
                     {{ post.content | safe }}
                 </p>
                 <div class="row">
@@ -40,10 +40,10 @@
                             <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like" aria-label="like"><i
                                         class="fas fa-heart"></i></button>
                                 {% else %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like" aria-label="like"><i
                                         class="far fa-heart"></i></button>
                                 {% endif %}
                             </form>
