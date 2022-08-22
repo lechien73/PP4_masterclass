@@ -3,8 +3,8 @@ var deleteButtons = document.getElementsByClassName("btn-delete");
 var editButtons = document.getElementsByClassName("btn-edit");
 var deleteConfirm = document.getElementById("deleteConfirm");
 var commentText = document.getElementsByTagName("textarea")[0];
-var commentForm = document.getElementById("commentForm")
-var submitButton = document.getElementById("submitButton")
+var commentForm = document.getElementById("commentForm");
+var submitButton = document.getElementById("submitButton");
 
 for (let button of deleteButtons) {
     button.addEventListener("click", (e) => {
@@ -21,5 +21,5 @@ for (let button of editButtons) {
         commentText.value = commentContent;
         submitButton.innerText = "Update";
         commentForm.setAttribute("action", `edit_comment/${commentId}`);
-    })
+    });
 }

@@ -86,7 +86,11 @@ def post_like(request, slug, *args, **kwargs):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
 def comment_delete(request, slug, id, *args, **kwargs):
+    """
+    view to delete comment
+    """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset)
     comment = post.comments.filter(id=id)
@@ -99,6 +103,9 @@ def comment_delete(request, slug, id, *args, **kwargs):
 
 
 def comment_edit(request, slug, id, *args, **kwargs):
+    """
+    view to edit comments
+    """
     queryset = Post.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
     comment = post.comments.filter(id=id).first()
@@ -108,7 +115,7 @@ def comment_edit(request, slug, id, *args, **kwargs):
         comment = comment_form.save(commit=False)
         comment.post = post
         comment.save()
-    
+
     messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
