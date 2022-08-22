@@ -3,7 +3,7 @@ from .models import About
 
 def about_me(request, *args, **kwargs):
     """
-    renders about page
+    Renders the About page
     """
     about = About.objects.all().first()
 
